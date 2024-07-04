@@ -1,12 +1,9 @@
 package tests;
 
-import com.example.credential_service.UserEntity;
+import app.credential_service.UserEntity;
 import common.configuration.Configuration;
-import common.utils.AllureUtils;
 import common.utils.ConfigurationUtils;
-import io.restassured.internal.common.assertion.AssertionSupport;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -14,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import common.utils.webdriver.WebDriverFactory;
-import pages.employeemanagement.components.employeeManagementPage.modal.EmployeeManagementPage;
 import steps.BaseLoginStepDefs;
 
 
@@ -22,7 +18,7 @@ public abstract class BaseTest {
 
     protected static final Configuration configuration = ConfigurationUtils.configuration;
     protected WebDriver driver;
-    private static final String CREDENTIAL_SERVICE_URL = "http://localhost:8081/api/users/";
+    private static final String CREDENTIAL_SERVICE_URL = "http://localhost:8081/api/users/";  //move to config
     protected static UserEntity managerUser;
     protected static UserEntity regularUser;
     private static RestTemplate restTemplate;
@@ -32,7 +28,7 @@ public abstract class BaseTest {
     @BeforeEach
     public void setUp() {
         driver = WebDriverFactory.createWebDriver();
-        driver.get("http://localhost:8080");
+        driver.get("http://localhost:8088"); //move to config
         restTemplate = new RestTemplate();
         managerUser = getCredentialsByRole("MANAGER");
         regularUser = getCredentialsByRole("REGULAR");

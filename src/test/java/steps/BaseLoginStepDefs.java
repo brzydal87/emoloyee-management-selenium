@@ -1,6 +1,6 @@
 package steps;
 
-import com.example.credential_service.UserEntity;
+import app.credential_service.UserEntity;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.employeemanagement.components.employeeManagementPage.modal.EmployeeManagementPage;

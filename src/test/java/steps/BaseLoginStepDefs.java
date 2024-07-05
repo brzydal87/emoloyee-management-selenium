@@ -14,8 +14,9 @@ public class BaseLoginStepDefs {
         this.driver = driver;
     }
 
-    @Step("User logs in into the Employee-Management application by username {user.username} and password {user.password}")
+    @Step("User logs in into the Employee-Management application by username with role '{user.role}'")
     public EmployeeManagementPage signInToApplication(UserEntity user) {
+        //TODO add hiding credentials
         new LoginPage(driver)
                 .enterUsername(user.getUsername())
                 .enterPassword(user.getPassword())
@@ -23,7 +24,7 @@ public class BaseLoginStepDefs {
         return new EmployeeManagementPage(driver).isAt();
     }
 
-    @Step("User logs in into the Employee-Management application by username {user.username} and password {user.password}")
+    @Step("User logs out form application")
     public LoginPage logOutFromApplication() {
         new EmployeeManagementPage(driver).clickLogOut();
         return new LoginPage(driver).isAt();

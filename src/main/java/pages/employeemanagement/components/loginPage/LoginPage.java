@@ -25,12 +25,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("User enters username: - '{0}'")
+    @Step("User enters username")
     public LoginPage enterUsername(String username){
         fillFieldWithText(usernameInput, username);
         return this;
     }
-    @Step("User enters password: - '{0}'")
+    @Step("User enters password")
     public LoginPage enterPassword(String password){
         fillFieldWithText(passwordInput, password);
         return this;

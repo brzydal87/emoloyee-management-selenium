@@ -3,6 +3,7 @@ package tests;
 import common.providers.DataProvider;
 import common.utils.ApiUtils;
 import common.utils.AssertionUtils;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,14 +16,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(BaseTest.TestWatcher.class)
-public class EmployeeManagementLayoutTexts extends BaseTest {
+public class EmployeeManagementLayoutTests extends BaseTest {
 
     private EmployeeManagementPage employeeManagementPage;
     private final String appTitle = "Employee Management";
     private String employeeId;
 
     @Test
-    @DisplayName("Verify Employee Management UI elements MANAGER")
+    @Step("Verify Employee management UI elements")
+    @DisplayName("[TC] Verify Employee Management UI elements MANAGER")
     public void testEmployeeManagementPageElementsManagerUser() {
         createEmployee();
 
@@ -35,7 +37,8 @@ public class EmployeeManagementLayoutTexts extends BaseTest {
     }
 
     @Test
-    @DisplayName("Verify Employee Management UI elements REGULAR")
+    @Step("Verify Employee management UI elements")
+    @DisplayName("[TC] Verify Employee Management UI elements REGULAR")
     public void testEmployeeManagementPageElementsRegulaUser() {
         createEmployee();
 

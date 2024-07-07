@@ -24,8 +24,8 @@ public class WebDriverFactory {
                 throw new IllegalArgumentException("Browser property is not specified in configuration.properties");
             }
 
-            boolean isRemote = Boolean.parseBoolean(properties.getProperty("remote"));
-            String remoteUrl = properties.getProperty("remoteUrl");
+            boolean isRemote = Boolean.parseBoolean(properties.getProperty("grid"));
+            String remoteUrl = properties.getProperty("webdriver.remote.url");
             reuseWebDriver = Boolean.parseBoolean(properties.getProperty("reusewebdriver"));
 
             DriverFactory driverFactory = DriverFactoryProvider.getDriverFactory(browser);

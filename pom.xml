@@ -16,6 +16,7 @@
     <allure.junit.version>2.25.0</allure.junit.version>
     <aspectj.version>1.9.22.1</aspectj.version>
     <selenium.version>4.22.0</selenium.version>
+    <grid>false</grid> <!-- Default value, can be overridden with -Dgrid=false -->
 
   </properties>
   <dependencies>
@@ -136,12 +137,15 @@
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>
-          <systemProperties>
+          <systemPropertyVariables>
+            <property>
+              <grid>${grid}</grid>
+            </property>
             <property>
               <name>allure.results.directory</name>
               <value>${allure.results.directory}</value>
             </property>
-          </systemProperties>
+          </systemPropertyVariables >
           <properties>
             <property>
               <name>listener</name>

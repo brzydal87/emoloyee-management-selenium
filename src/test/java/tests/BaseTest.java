@@ -33,6 +33,8 @@ public abstract class BaseTest {
         managerUser = getCredentialsByRole("MANAGER");
         regularUser = getCredentialsByRole("REGULAR");
         baseLoginStepDefs = new BaseLoginStepDefs(driver);
+        String gridEnabled = System.getProperty("grid", "false");
+        System.out.println("Grid enabled: " + gridEnabled);
     }
 
     @AfterEach

@@ -19,12 +19,15 @@ public class WebDriverFactory {
 
     public static WebDriver createWebDriver() {
         if (driver == null || !reuseWebDriver) {
+            loadProperties();
             String browser = properties.getProperty("browser");
             if (browser == null) {
                 throw new IllegalArgumentException("Browser property is not specified in configuration.properties");
             }
 
-            boolean isRemote = Boolean.parseBoolean(properties.getProperty("grid"));
+            String gridProperty = System.getProperty("grid");
+            boolean isRemote = gridProperty != null ? Boolean.parseBoolean(gridProperty) : Boolean.parseBoolean(properties.getProperty("grid"));
+
             String remoteUrl = properties.getProperty("webdriver.remote.url");
             reuseWebDriver = Boolean.parseBoolean(properties.getProperty("reusewebdriver"));
 
